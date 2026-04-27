@@ -1,7 +1,26 @@
-// Include these modules into your existing Phase7 Android project
-include(":feature-monetization")
-include(":feature-ads")
-include(":feature-voucher")
-include(":feature-operator")
+rootProject.name = "lumos-android"
+
+include(":app")
+
 include(":core-billing")
+include(":core-common")
+include(":core-config")
+include(":core-crypto-api")
+include(":core-designsystem")
+include(":core-media")
+include(":core-protocol")
 include(":core-remoteconfig")
+include(":core-session")
+include(":core-transport-mux")
+
+include(":feature-ads")
+include(":feature-chat")
+include(":feature-diagnostics")
+include(":feature-discovery")
+include(":feature-onboarding")
+include(":feature-operator")
+include(":feature-profile")
+include(":feature-requests")
+include(":feature-safety")
+include(":feature-session")
+include(":feature-voucher")
