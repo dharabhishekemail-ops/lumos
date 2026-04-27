@@ -16,3 +16,5 @@ Paste exact commands:
 ```bash
 make all
 make evidence
+make ios-test
+make android-test
