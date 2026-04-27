@@ -1,0 +1,5 @@
+// Lumos Release.xcconfig (template)
+SWIFT_OPTIMIZATION_LEVEL = -O
+DEBUG_INFORMATION_FORMAT = dwarf-with-dsym
+ENABLE_TESTABILITY = NO
+OTHER_SWIFT_FLAGS = $(inherited) -DRELEASE

@@ -1,0 +1,21 @@
+{
+  "envelope": {
+    "v": 1,
+    "msgType": "GOODBYE",
+    "sessionId": "s_session01",
+    "messageId": "m_msg00013x",
+    "sentAtMs": 1730000000600,
+    "transport": "WIFI",
+    "payloadEncoding": "JSON"
+  },
+  "payload": {
+    "reason": "USER_INITIATED"
+  },
+  "_meta": {
+    "protocolVersion": "1.0",
+    "expectedResult": "PASS",
+    "purpose": "interop",
+    "toolVersion": "lumos-rc1-v1.4",
+    "fixtureId": "golden_12_goodbye"
+  }
+}

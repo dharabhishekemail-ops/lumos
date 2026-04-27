@@ -1,0 +1,29 @@
+{
+  "envelope": {
+    "v": 1,
+    "msgType": "HELLO_ACK",
+    "sessionId": "s_session01",
+    "messageId": "m_msg00002x",
+    "sentAtMs": 1730000000050,
+    "transport": "BLE",
+    "payloadEncoding": "JSON"
+  },
+  "payload": {
+    "selectedProtocolVersion": 1,
+    "selectedTransport": "BLE",
+    "selectedAead": "CHACHA20_POLY1305",
+    "selectedKdf": "HKDF_SHA256",
+    "selectedCurve": "X25519",
+    "featuresAccepted": [
+      "CHAT_TEXT",
+      "CHAT_MEDIA_PHOTO"
+    ]
+  },
+  "_meta": {
+    "protocolVersion": "1.0",
+    "expectedResult": "PASS",
+    "purpose": "interop",
+    "toolVersion": "lumos-rc1-v1.4",
+    "fixtureId": "golden_02_hello_ack"
+  }
+}

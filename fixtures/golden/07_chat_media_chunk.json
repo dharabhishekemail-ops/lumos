@@ -1,0 +1,25 @@
+{
+  "envelope": {
+    "v": 1,
+    "msgType": "CHAT_MEDIA_CHUNK",
+    "sessionId": "s_session01",
+    "messageId": "m_msg00008x",
+    "sentAtMs": 1730000000350,
+    "transport": "WIFI",
+    "payloadEncoding": "JSON"
+  },
+  "payload": {
+    "transferId": "xfer_aaaaaaa1",
+    "chunkIndex": 0,
+    "isLast": false,
+    "ciphertextB64": "AAECAwQFBgcICQoLDA0ODw==",
+    "sha256Hex": "9d4c2f636f067e8f3eaa3c6e0e98a7bdc62c9e1baeb6d3c1a4fa4f17e35e5e8b"
+  },
+  "_meta": {
+    "protocolVersion": "1.0",
+    "expectedResult": "PASS",
+    "purpose": "interop",
+    "toolVersion": "lumos-rc1-v1.4",
+    "fixtureId": "golden_07_chat_media_chunk"
+  }
+}

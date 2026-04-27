@@ -1,0 +1,7 @@
+# Lumos RC2.1 Python gate dependencies
+# Install from repo root with:
+#   python3 -m pip install -r tools/requirements.txt
+pytest>=8.0.0
+hypothesis>=6.100.0
+jsonschema>=4.21.0
+cryptography>=42.0.0

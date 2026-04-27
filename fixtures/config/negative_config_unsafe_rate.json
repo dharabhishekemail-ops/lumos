@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "configVersion": "1.0.0",
+  "issuedAt": "2026-03-01T00:00:00Z",
+  "expiresAt": "2026-09-01T00:00:00Z",
+  "payload": {
+    "featureFlags": {
+      "adsTabEnabled": true
+    },
+    "transport": {
+      "priorityOrder": [
+        "WIFI"
+      ],
+      "retryBudget": 5,
+      "backoffMaxMs": 8000
+    },
+    "rateLimits": {
+      "interestPerHour": 999,
+      "messagesPerMinute": 60
+    },
+    "legalCopyVersion": "v1.0"
+  },
+  "signature": {
+    "alg": "ed25519",
+    "keyId": "k",
+    "sigB64": "AAAA"
+  },
+  "_meta": {
+    "protocolVersion": "1.0",
+    "expectedResult": "REJECT",
+    "purpose": "interop-negative",
+    "toolVersion": "lumos-rc1-v1.4",
+    "fixtureId": "negative_config_unsafe_rate"
+  }
+}

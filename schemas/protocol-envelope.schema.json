@@ -1,0 +1,151 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lumos.local/schemas/protocol-envelope-v1.json",
+  "title": "LumosEnvelope",
+  "description": "Canonical Lumos protocol envelope, v1. Per Lumos Protocol & Interop Contract v1.0 §3. This is the single, authoritative wire format. Encoders and decoders on Android and iOS MUST produce/accept exactly this shape.",
+  "type": "object",
+  "required": ["envelope", "payload"],
+  "additionalProperties": false,
+  "properties": {
+    "envelope": {
+      "type": "object",
+      "required": ["v", "msgType", "sessionId", "messageId", "sentAtMs", "transport", "payloadEncoding"],
+      "additionalProperties": false,
+      "properties": {
+        "v":               {"type": "integer", "minimum": 1, "maximum": 1},
+        "msgType":         {"type": "string", "enum": ["HELLO","HELLO_ACK","INTEREST_REQUEST","INTEREST_RESPONSE","MATCH_ESTABLISHED","CHAT_TEXT","CHAT_MEDIA_CHUNK","CHAT_MEDIA_ACK","HEARTBEAT","ERROR","TRANSPORT_MIGRATE","GOODBYE"]},
+        "sessionId":       {"type": "string", "pattern": "^[A-Za-z0-9_-]{8,64}$"},
+        "messageId":       {"type": "string", "pattern": "^[A-Za-z0-9_-]{8,64}$"},
+        "sentAtMs":        {"type": "integer", "minimum": 0, "maximum": 4102444800000},
+        "transport":       {"type": "string", "enum": ["BLE","WIFI","QR"]},
+        "payloadEncoding": {"type": "string", "enum": ["JSON"]}
+      }
+    },
+    "payload": {"type": "object"},
+    "_meta":   {"type": "object", "additionalProperties": true}
+  },
+  "$defs": {
+    "Hello": {
+      "type": "object",
+      "required": ["protocolVersions","transports","aeadSuites","kdfSuites","curves","features","nonce"],
+      "additionalProperties": false,
+      "properties": {
+        "protocolVersions": {"type": "array", "items": {"type": "integer", "minimum": 1}, "minItems": 1, "maxItems": 8},
+        "transports":       {"type": "array", "items": {"type": "string", "enum": ["BLE","WIFI","QR"]}, "minItems": 1, "maxItems": 3, "uniqueItems": true},
+        "aeadSuites":       {"type": "array", "items": {"type": "string", "enum": ["CHACHA20_POLY1305","AES_256_GCM"]}, "minItems": 1, "maxItems": 2, "uniqueItems": true},
+        "kdfSuites":        {"type": "array", "items": {"type": "string", "enum": ["HKDF_SHA256"]}, "minItems": 1, "maxItems": 1, "uniqueItems": true},
+        "curves":           {"type": "array", "items": {"type": "string", "enum": ["X25519"]}, "minItems": 1, "maxItems": 1, "uniqueItems": true},
+        "features":         {"type": "array", "items": {"type": "string", "enum": ["CHAT_TEXT","CHAT_MEDIA_PHOTO","VOUCHER_QR"]}, "maxItems": 16, "uniqueItems": true},
+        "nonce":            {"type": "string", "minLength": 16, "maxLength": 64, "pattern": "^[A-Za-z0-9+/=_-]+$"}
+      }
+    },
+    "HelloAck": {
+      "type": "object",
+      "required": ["selectedProtocolVersion","selectedTransport","selectedAead","selectedKdf","selectedCurve","featuresAccepted"],
+      "additionalProperties": false,
+      "properties": {
+        "selectedProtocolVersion": {"type": "integer", "minimum": 1, "maximum": 1},
+        "selectedTransport":       {"type": "string", "enum": ["BLE","WIFI","QR"]},
+        "selectedAead":            {"type": "string", "enum": ["CHACHA20_POLY1305","AES_256_GCM"]},
+        "selectedKdf":             {"type": "string", "enum": ["HKDF_SHA256"]},
+        "selectedCurve":           {"type": "string", "enum": ["X25519"]},
+        "featuresAccepted":        {"type": "array", "items": {"type": "string", "enum": ["CHAT_TEXT","CHAT_MEDIA_PHOTO","VOUCHER_QR"]}, "maxItems": 16, "uniqueItems": true}
+      }
+    },
+    "InterestRequest": {
+      "type": "object",
+      "required": ["previewProfile","interestToken"],
+      "additionalProperties": false,
+      "properties": {
+        "previewProfile": {
+          "type": "object",
+          "required": ["alias","tags","intent"],
+          "additionalProperties": false,
+          "properties": {
+            "alias":  {"type": "string", "minLength": 1, "maxLength": 32},
+            "tags":   {"type": "array", "items": {"type": "string", "maxLength": 24}, "maxItems": 8},
+            "intent": {"type": "string", "enum": ["dating","chat","networking"]}
+          }
+        },
+        "interestToken": {"type": "string", "minLength": 8, "maxLength": 64, "pattern": "^[A-Za-z0-9_-]+$"}
+      }
+    },
+    "InterestResponse": {
+      "type": "object",
+      "required": ["accepted"],
+      "additionalProperties": false,
+      "properties": {"accepted": {"type": "boolean"}, "reason": {"type": "string", "maxLength": 64}}
+    },
+    "MatchEstablished": {
+      "type": "object", "required": ["matchId"], "additionalProperties": false,
+      "properties": {"matchId": {"type": "string", "pattern": "^[A-Za-z0-9_-]{8,64}$"}}
+    },
+    "ChatText": {
+      "type": "object",
+      "required": ["ciphertextB64","aadHashHex","ratchetIndex"],
+      "additionalProperties": false,
+      "properties": {
+        "ciphertextB64": {"type": "string", "minLength": 4, "maxLength": 8192, "pattern": "^[A-Za-z0-9+/]+=*$"},
+        "aadHashHex":    {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "ratchetIndex":  {"type": "integer", "minimum": 0}
+      }
+    },
+    "ChatMediaChunk": {
+      "type": "object",
+      "required": ["transferId","chunkIndex","isLast","ciphertextB64","sha256Hex"],
+      "additionalProperties": false,
+      "properties": {
+        "transferId":    {"type": "string", "pattern": "^[A-Za-z0-9_-]{8,64}$"},
+        "chunkIndex":    {"type": "integer", "minimum": 0, "maximum": 65535},
+        "isLast":        {"type": "boolean"},
+        "ciphertextB64": {"type": "string", "minLength": 4, "maxLength": 32768, "pattern": "^[A-Za-z0-9+/]+=*$"},
+        "sha256Hex":     {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+    },
+    "ChatMediaAck": {
+      "type": "object",
+      "required": ["transferId","highestContiguousChunk"],
+      "additionalProperties": false,
+      "properties": {
+        "transferId":             {"type": "string", "pattern": "^[A-Za-z0-9_-]{8,64}$"},
+        "highestContiguousChunk": {"type": "integer", "minimum": -1, "maximum": 65535}
+      }
+    },
+    "Heartbeat": {
+      "type": "object", "required": ["seq"], "additionalProperties": false,
+      "properties": {"seq": {"type": "integer", "minimum": 0}}
+    },
+    "ErrorPayload": {
+      "type": "object",
+      "required": ["code","retryable"],
+      "additionalProperties": false,
+      "properties": {
+        "code":      {"type": "string", "enum": ["PARSE_ERROR","SCHEMA_ERROR","AUTH_TAG_FAIL","SESSION_UNKNOWN","REPLAY_DETECTED","RATE_LIMITED","INCOMPATIBLE_VERSION","TRANSPORT_FAILED","INTERNAL"]},
+        "retryable": {"type": "boolean"},
+        "message":   {"type": "string", "maxLength": 128}
+      }
+    },
+    "TransportMigrate": {
+      "type": "object", "required": ["proposed"], "additionalProperties": false,
+      "properties": {"proposed": {"type": "array", "items": {"type": "string", "enum": ["BLE","WIFI","QR"]}, "minItems": 1, "maxItems": 3, "uniqueItems": true}}
+    },
+    "Goodbye": {
+      "type": "object", "required": ["reason"], "additionalProperties": false,
+      "properties": {"reason": {"type": "string", "enum": ["USER_INITIATED","SESSION_TIMEOUT","FATAL_ERROR","PEER_BLOCKED"]}}
+    }
+  },
+  "allOf": [
+    {"if": {"properties": {"envelope": {"properties": {"msgType": {"const": "HELLO"}}}}},             "then": {"properties": {"payload": {"$ref": "#/$defs/Hello"}}}},
+    {"if": {"properties": {"envelope": {"properties": {"msgType": {"const": "HELLO_ACK"}}}}},         "then": {"properties": {"payload": {"$ref": "#/$defs/HelloAck"}}}},
+    {"if": {"properties": {"envelope": {"properties": {"msgType": {"const": "INTEREST_REQUEST"}}}}},  "then": {"properties": {"payload": {"$ref": "#/$defs/InterestRequest"}}}},
+    {"if": {"properties": {"envelope": {"properties": {"msgType": {"const": "INTEREST_RESPONSE"}}}}}, "then": {"properties": {"payload": {"$ref": "#/$defs/InterestResponse"}}}},
+    {"if": {"properties": {"envelope": {"properties": {"msgType": {"const": "MATCH_ESTABLISHED"}}}}}, "then": {"properties": {"payload": {"$ref": "#/$defs/MatchEstablished"}}}},
+    {"if": {"properties": {"envelope": {"properties": {"msgType": {"const": "CHAT_TEXT"}}}}},         "then": {"properties": {"payload": {"$ref": "#/$defs/ChatText"}}}},
+    {"if": {"properties": {"envelope": {"properties": {"msgType": {"const": "CHAT_MEDIA_CHUNK"}}}}},  "then": {"properties": {"payload": {"$ref": "#/$defs/ChatMediaChunk"}}}},
+    {"if": {"properties": {"envelope": {"properties": {"msgType": {"const": "CHAT_MEDIA_ACK"}}}}},    "then": {"properties": {"payload": {"$ref": "#/$defs/ChatMediaAck"}}}},
+    {"if": {"properties": {"envelope": {"properties": {"msgType": {"const": "HEARTBEAT"}}}}},         "then": {"properties": {"payload": {"$ref": "#/$defs/Heartbeat"}}}},
+    {"if": {"properties": {"envelope": {"properties": {"msgType": {"const": "ERROR"}}}}},             "then": {"properties": {"payload": {"$ref": "#/$defs/ErrorPayload"}}}},
+    {"if": {"properties": {"envelope": {"properties": {"msgType": {"const": "TRANSPORT_MIGRATE"}}}}}, "then": {"properties": {"payload": {"$ref": "#/$defs/TransportMigrate"}}}},
+    {"if": {"properties": {"envelope": {"properties": {"msgType": {"const": "GOODBYE"}}}}},           "then": {"properties": {"payload": {"$ref": "#/$defs/Goodbye"}}}}
+  ]
+}

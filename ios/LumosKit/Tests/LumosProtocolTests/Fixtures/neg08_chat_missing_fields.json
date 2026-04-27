@@ -1,0 +1,21 @@
+{
+  "envelope": {
+    "v": 1,
+    "msgType": "CHAT_TEXT",
+    "sessionId": "s_session01",
+    "messageId": "m_msg00001x",
+    "sentAtMs": 1730000000000,
+    "transport": "WIFI",
+    "payloadEncoding": "JSON"
+  },
+  "payload": {
+    "ciphertextB64": "aGVsbG8="
+  },
+  "_meta": {
+    "protocolVersion": "1.0",
+    "expectedResult": "REJECT",
+    "purpose": "interop-negative",
+    "toolVersion": "lumos-rc1-v1.4",
+    "fixtureId": "neg08_chat_missing_fields"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "envelope": {
+    "v": 1,
+    "msgType": "HELLO",
+    "sessionId": "s_session01",
+    "messageId": "m_msg00001x",
+    "sentAtMs": 1730000000000,
+    "transport": "BLE",
+    "payloadEncoding": "JSON"
+  },
+  "payload": {
+    "protocolVersions": [
+      1
+    ],
+    "transports": [
+      "BLE",
+      "WIFI",
+      "QR"
+    ],
+    "aeadSuites": [
+      "CHACHA20_POLY1305",
+      "AES_256_GCM"
+    ],
+    "kdfSuites": [
+      "HKDF_SHA256"
+    ],
+    "curves": [
+      "X25519"
+    ],
+    "features": [
+      "CHAT_TEXT",
+      "CHAT_MEDIA_PHOTO",
+      "VOUCHER_QR"
+    ],
+    "nonce": "Tm9uY2VBQUFBQUFBQQ=="
+  },
+  "_meta": {
+    "protocolVersion": "1.0",
+    "expectedResult": "PASS",
+    "purpose": "interop",
+    "toolVersion": "lumos-rc1-v1.4",
+    "fixtureId": "golden_01_hello"
+  }
+}

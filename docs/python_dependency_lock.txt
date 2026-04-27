@@ -1,0 +1,23 @@
+# Python Dependency Lock / Evidence
+
+Generated UTC: 2026-04-27T02:12:40.312454+00:00
+
+## Required specs
+- pytest>=8.0.0
+- hypothesis>=6.100.0
+- jsonschema>=4.21.0
+- cryptography>=42.0.0
+
+## Installed versions
+- pytest: 8.2.2
+- hypothesis: MISSING
+- jsonschema: 4.25.1
+- cryptography: 46.0.0
+
+requirements.txt SHA-256: `27b691be77a76ebd9284d13fea6eda70ca237f9c20b6c08f467657f42297ad9e`
+
+## Missing dependencies
+
+hypothesis
+
+Install with: `python3 -m pip install -r tools/requirements.txt`

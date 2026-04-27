@@ -1,0 +1,21 @@
+{
+  "generated_utc": "2026-04-27T02:12:40.312454+00:00",
+  "requirements_file": "tools/requirements.txt",
+  "requirements_sha256": "27b691be77a76ebd9284d13fea6eda70ca237f9c20b6c08f467657f42297ad9e",
+  "required_specs": [
+    "pytest>=8.0.0",
+    "hypothesis>=6.100.0",
+    "jsonschema>=4.21.0",
+    "cryptography>=42.0.0"
+  ],
+  "installed_versions": {
+    "pytest": "8.2.2",
+    "hypothesis": null,
+    "jsonschema": "4.25.1",
+    "cryptography": "46.0.0"
+  },
+  "missing": [
+    "hypothesis"
+  ],
+  "install_command": "python3 -m pip install -r tools/requirements.txt"
+}

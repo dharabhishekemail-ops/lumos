@@ -1,0 +1,266 @@
+{
+  "summary": {
+    "golden_total": 13,
+    "golden_pass": 13,
+    "negative_total": 10,
+    "negative_pass": 10,
+    "config_total": 3,
+    "config_pass": 3,
+    "overall_pass": true
+  },
+  "golden": [
+    {
+      "fixture": "01_hello.json",
+      "kind": "golden",
+      "checks": {
+        "schema": true,
+        "canon_round_trip": true,
+        "android_byte_equal": true,
+        "ios_byte_equal": true,
+        "cross_android_to_ios": true
+      },
+      "pass": true,
+      "bytes": 411
+    },
+    {
+      "fixture": "02_hello_ack.json",
+      "kind": "golden",
+      "checks": {
+        "schema": true,
+        "canon_round_trip": true,
+        "android_byte_equal": true,
+        "ios_byte_equal": true,
+        "cross_android_to_ios": true
+      },
+      "pass": true,
+      "bytes": 368
+    },
+    {
+      "fixture": "03_interest_request.json",
+      "kind": "golden",
+      "checks": {
+        "schema": true,
+        "canon_round_trip": true,
+        "android_byte_equal": true,
+        "ios_byte_equal": true,
+        "cross_android_to_ios": true
+      },
+      "pass": true,
+      "bytes": 293
+    },
+    {
+      "fixture": "04a_interest_response_accept.json",
+      "kind": "golden",
+      "checks": {
+        "schema": true,
+        "canon_round_trip": true,
+        "android_byte_equal": true,
+        "ios_byte_equal": true,
+        "cross_android_to_ios": true
+      },
+      "pass": true,
+      "bytes": 199
+    },
+    {
+      "fixture": "04b_interest_response_reject.json",
+      "kind": "golden",
+      "checks": {
+        "schema": true,
+        "canon_round_trip": true,
+        "android_byte_equal": true,
+        "ios_byte_equal": true,
+        "cross_android_to_ios": true
+      },
+      "pass": true,
+      "bytes": 224
+    },
+    {
+      "fixture": "05_match_established.json",
+      "kind": "golden",
+      "checks": {
+        "schema": true,
+        "canon_round_trip": true,
+        "android_byte_equal": true,
+        "ios_byte_equal": true,
+        "cross_android_to_ios": true
+      },
+      "pass": true,
+      "bytes": 210
+    },
+    {
+      "fixture": "06_chat_text.json",
+      "kind": "golden",
+      "checks": {
+        "schema": true,
+        "canon_round_trip": true,
+        "android_byte_equal": true,
+        "ios_byte_equal": true,
+        "cross_android_to_ios": true
+      },
+      "pass": true,
+      "bytes": 307
+    },
+    {
+      "fixture": "07_chat_media_chunk.json",
+      "kind": "golden",
+      "checks": {
+        "schema": true,
+        "canon_round_trip": true,
+        "android_byte_equal": true,
+        "ios_byte_equal": true,
+        "cross_android_to_ios": true
+      },
+      "pass": true,
+      "bytes": 363
+    },
+    {
+      "fixture": "08_chat_media_ack.json",
+      "kind": "golden",
+      "checks": {
+        "schema": true,
+        "canon_round_trip": true,
+        "android_byte_equal": true,
+        "ios_byte_equal": true,
+        "cross_android_to_ios": true
+      },
+      "pass": true,
+      "bytes": 236
+    },
+    {
+      "fixture": "09_heartbeat.json",
+      "kind": "golden",
+      "checks": {
+        "schema": true,
+        "canon_round_trip": true,
+        "android_byte_equal": true,
+        "ios_byte_equal": true,
+        "cross_android_to_ios": true
+      },
+      "pass": true,
+      "bytes": 184
+    },
+    {
+      "fixture": "10_transport_migrate.json",
+      "kind": "golden",
+      "checks": {
+        "schema": true,
+        "canon_round_trip": true,
+        "android_byte_equal": true,
+        "ios_byte_equal": true,
+        "cross_android_to_ios": true
+      },
+      "pass": true,
+      "bytes": 208
+    },
+    {
+      "fixture": "11_error.json",
+      "kind": "golden",
+      "checks": {
+        "schema": true,
+        "canon_round_trip": true,
+        "android_byte_equal": true,
+        "ios_byte_equal": true,
+        "cross_android_to_ios": true
+      },
+      "pass": true,
+      "bytes": 249
+    },
+    {
+      "fixture": "12_goodbye.json",
+      "kind": "golden",
+      "checks": {
+        "schema": true,
+        "canon_round_trip": true,
+        "android_byte_equal": true,
+        "ios_byte_equal": true,
+        "cross_android_to_ios": true
+      },
+      "pass": true,
+      "bytes": 199
+    }
+  ],
+  "negative": [
+    {
+      "fixture": "neg01_truncated.bin",
+      "kind": "negative",
+      "pass": true
+    },
+    {
+      "fixture": "neg02_bad_msg_type.json",
+      "kind": "negative",
+      "pass": true,
+      "note": "rejected: unknown msgType: 'NOT_A_REAL_TYPE'"
+    },
+    {
+      "fixture": "neg03_missing_session_id.json",
+      "kind": "negative",
+      "pass": true,
+      "note": "rejected: missing envelope fields: ['sessionId']"
+    },
+    {
+      "fixture": "neg04_bad_transport.json",
+      "kind": "negative",
+      "pass": true,
+      "note": "rejected: unknown transport: 'WIFI_LOCAL'"
+    },
+    {
+      "fixture": "neg05_bad_session_id_pattern.json",
+      "kind": "negative",
+      "pass": true,
+      "note": "rejected: sessionId must match ^[A-Za-z0-9_-]{8,64}$, got '$$$BAD$$$'"
+    },
+    {
+      "fixture": "neg06_unsupported_version.json",
+      "kind": "negative",
+      "pass": true,
+      "note": "rejected: unsupported protocol version: 99"
+    },
+    {
+      "fixture": "neg07_unknown_envelope_field.json",
+      "kind": "negative",
+      "pass": true,
+      "note": "rejected: unknown envelope fields: ['extraField']"
+    },
+    {
+      "fixture": "neg08_chat_missing_fields.json",
+      "kind": "negative",
+      "pass": true,
+      "note": "rejected: missing required field 'aadHashHex'"
+    },
+    {
+      "fixture": "neg09_replay_duplicate.json",
+      "kind": "negative",
+      "pass": true,
+      "note": "session-layer replay fixture accepted by codec as expected"
+    },
+    {
+      "fixture": "neg10_negative_timestamp.json",
+      "kind": "negative",
+      "pass": true,
+      "note": "rejected: sentAtMs out of range: -1"
+    }
+  ],
+  "config": [
+    {
+      "fixture": "config_01_valid.json",
+      "kind": "config",
+      "pass": true,
+      "expected_pass": true,
+      "validator_result": "ok"
+    },
+    {
+      "fixture": "negative_config_unsafe_rate.json",
+      "kind": "config",
+      "pass": true,
+      "expected_pass": false,
+      "validator_result": "interestPerHour"
+    },
+    {
+      "fixture": "negative_config_unsigned.json",
+      "kind": "config",
+      "pass": true,
+      "expected_pass": false,
+      "validator_result": "signature"
+    }
+  ]
+}

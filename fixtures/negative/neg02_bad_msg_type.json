@@ -1,0 +1,19 @@
+{
+  "envelope": {
+    "v": 1,
+    "msgType": "NOT_A_REAL_TYPE",
+    "sessionId": "s_session01",
+    "messageId": "m_msg00001x",
+    "sentAtMs": 1730000000000,
+    "transport": "BLE",
+    "payloadEncoding": "JSON"
+  },
+  "payload": {},
+  "_meta": {
+    "protocolVersion": "1.0",
+    "expectedResult": "REJECT",
+    "purpose": "interop-negative",
+    "toolVersion": "lumos-rc1-v1.4",
+    "fixtureId": "neg02_bad_msg_type"
+  }
+}

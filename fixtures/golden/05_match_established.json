@@ -1,0 +1,21 @@
+{
+  "envelope": {
+    "v": 1,
+    "msgType": "MATCH_ESTABLISHED",
+    "sessionId": "s_session01",
+    "messageId": "m_msg00006x",
+    "sentAtMs": 1730000000250,
+    "transport": "WIFI",
+    "payloadEncoding": "JSON"
+  },
+  "payload": {
+    "matchId": "match_zzzzzzz1"
+  },
+  "_meta": {
+    "protocolVersion": "1.0",
+    "expectedResult": "PASS",
+    "purpose": "interop",
+    "toolVersion": "lumos-rc1-v1.4",
+    "fixtureId": "golden_05_match_established"
+  }
+}

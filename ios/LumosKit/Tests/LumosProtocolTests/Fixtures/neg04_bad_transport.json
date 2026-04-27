@@ -1,0 +1,37 @@
+{
+  "envelope": {
+    "v": 1,
+    "msgType": "HELLO",
+    "sessionId": "s_session01",
+    "messageId": "m_msg00001x",
+    "sentAtMs": 1730000000000,
+    "transport": "WIFI_LOCAL",
+    "payloadEncoding": "JSON"
+  },
+  "payload": {
+    "protocolVersions": [
+      1
+    ],
+    "transports": [
+      "BLE"
+    ],
+    "aeadSuites": [
+      "CHACHA20_POLY1305"
+    ],
+    "kdfSuites": [
+      "HKDF_SHA256"
+    ],
+    "curves": [
+      "X25519"
+    ],
+    "features": [],
+    "nonce": "Tm9uY2VBQUFBQUFBQQ=="
+  },
+  "_meta": {
+    "protocolVersion": "1.0",
+    "expectedResult": "REJECT",
+    "purpose": "interop-negative",
+    "toolVersion": "lumos-rc1-v1.4",
+    "fixtureId": "neg04_bad_transport"
+  }
+}

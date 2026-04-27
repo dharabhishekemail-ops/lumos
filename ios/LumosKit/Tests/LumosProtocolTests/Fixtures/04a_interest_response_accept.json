@@ -1,0 +1,21 @@
+{
+  "envelope": {
+    "v": 1,
+    "msgType": "INTEREST_RESPONSE",
+    "sessionId": "s_session01",
+    "messageId": "m_msg00004x",
+    "sentAtMs": 1730000000150,
+    "transport": "WIFI",
+    "payloadEncoding": "JSON"
+  },
+  "payload": {
+    "accepted": true
+  },
+  "_meta": {
+    "protocolVersion": "1.0",
+    "expectedResult": "PASS",
+    "purpose": "interop",
+    "toolVersion": "lumos-rc1-v1.4",
+    "fixtureId": "golden_04a_interest_response_accept"
+  }
+}

@@ -1,0 +1,15 @@
+default_platform(:android)
+
+platform :android do
+  desc "Build Release APK (no signing secrets included)"
+  lane :build_release do
+    gradle(task: "clean")
+    gradle(task: "assemble", build_type: "Release")
+  end
+
+  desc "Run unit tests + lint"
+  lane :test do
+    gradle(task: "test")
+    gradle(task: "lint")
+  end
+end

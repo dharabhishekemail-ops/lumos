@@ -1,0 +1,23 @@
+{
+  "envelope": {
+    "v": 1,
+    "msgType": "ERROR",
+    "sessionId": "s_session01",
+    "messageId": "m_msg00012x",
+    "sentAtMs": 1730000000550,
+    "transport": "WIFI",
+    "payloadEncoding": "JSON"
+  },
+  "payload": {
+    "code": "AUTH_TAG_FAIL",
+    "retryable": false,
+    "message": "AEAD verification failed"
+  },
+  "_meta": {
+    "protocolVersion": "1.0",
+    "expectedResult": "PASS",
+    "purpose": "interop",
+    "toolVersion": "lumos-rc1-v1.4",
+    "fixtureId": "golden_11_error"
+  }
+}

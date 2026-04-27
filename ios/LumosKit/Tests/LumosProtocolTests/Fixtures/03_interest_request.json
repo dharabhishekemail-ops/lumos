@@ -1,0 +1,29 @@
+{
+  "envelope": {
+    "v": 1,
+    "msgType": "INTEREST_REQUEST",
+    "sessionId": "s_session01",
+    "messageId": "m_msg00003x",
+    "sentAtMs": 1730000000100,
+    "transport": "WIFI",
+    "payloadEncoding": "JSON"
+  },
+  "payload": {
+    "previewProfile": {
+      "alias": "Luna",
+      "tags": [
+        "music",
+        "coffee"
+      ],
+      "intent": "chat"
+    },
+    "interestToken": "tok_abc123def456"
+  },
+  "_meta": {
+    "protocolVersion": "1.0",
+    "expectedResult": "PASS",
+    "purpose": "interop",
+    "toolVersion": "lumos-rc1-v1.4",
+    "fixtureId": "golden_03_interest_request"
+  }
+}

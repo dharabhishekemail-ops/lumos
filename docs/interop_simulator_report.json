@@ -1,0 +1,166 @@
+{
+  "summary": {
+    "total": 13,
+    "pass": 13,
+    "fail": 0,
+    "overall_pass": true
+  },
+  "fixtures": [
+    {
+      "fixture": "01_hello.json",
+      "bytes": 411,
+      "android_byte_equal_canon": true,
+      "ios_byte_equal_canon": true,
+      "android_equal_ios": true,
+      "cross_envelope_match": true,
+      "cross_payload_match": true,
+      "android_idempotent": true,
+      "ios_idempotent": true,
+      "pass": true
+    },
+    {
+      "fixture": "02_hello_ack.json",
+      "bytes": 368,
+      "android_byte_equal_canon": true,
+      "ios_byte_equal_canon": true,
+      "android_equal_ios": true,
+      "cross_envelope_match": true,
+      "cross_payload_match": true,
+      "android_idempotent": true,
+      "ios_idempotent": true,
+      "pass": true
+    },
+    {
+      "fixture": "03_interest_request.json",
+      "bytes": 293,
+      "android_byte_equal_canon": true,
+      "ios_byte_equal_canon": true,
+      "android_equal_ios": true,
+      "cross_envelope_match": true,
+      "cross_payload_match": true,
+      "android_idempotent": true,
+      "ios_idempotent": true,
+      "pass": true
+    },
+    {
+      "fixture": "04a_interest_response_accept.json",
+      "bytes": 199,
+      "android_byte_equal_canon": true,
+      "ios_byte_equal_canon": true,
+      "android_equal_ios": true,
+      "cross_envelope_match": true,
+      "cross_payload_match": true,
+      "android_idempotent": true,
+      "ios_idempotent": true,
+      "pass": true
+    },
+    {
+      "fixture": "04b_interest_response_reject.json",
+      "bytes": 224,
+      "android_byte_equal_canon": true,
+      "ios_byte_equal_canon": true,
+      "android_equal_ios": true,
+      "cross_envelope_match": true,
+      "cross_payload_match": true,
+      "android_idempotent": true,
+      "ios_idempotent": true,
+      "pass": true
+    },
+    {
+      "fixture": "05_match_established.json",
+      "bytes": 210,
+      "android_byte_equal_canon": true,
+      "ios_byte_equal_canon": true,
+      "android_equal_ios": true,
+      "cross_envelope_match": true,
+      "cross_payload_match": true,
+      "android_idempotent": true,
+      "ios_idempotent": true,
+      "pass": true
+    },
+    {
+      "fixture": "06_chat_text.json",
+      "bytes": 307,
+      "android_byte_equal_canon": true,
+      "ios_byte_equal_canon": true,
+      "android_equal_ios": true,
+      "cross_envelope_match": true,
+      "cross_payload_match": true,
+      "android_idempotent": true,
+      "ios_idempotent": true,
+      "pass": true
+    },
+    {
+      "fixture": "07_chat_media_chunk.json",
+      "bytes": 363,
+      "android_byte_equal_canon": true,
+      "ios_byte_equal_canon": true,
+      "android_equal_ios": true,
+      "cross_envelope_match": true,
+      "cross_payload_match": true,
+      "android_idempotent": true,
+      "ios_idempotent": true,
+      "pass": true
+    },
+    {
+      "fixture": "08_chat_media_ack.json",
+      "bytes": 236,
+      "android_byte_equal_canon": true,
+      "ios_byte_equal_canon": true,
+      "android_equal_ios": true,
+      "cross_envelope_match": true,
+      "cross_payload_match": true,
+      "android_idempotent": true,
+      "ios_idempotent": true,
+      "pass": true
+    },
+    {
+      "fixture": "09_heartbeat.json",
+      "bytes": 184,
+      "android_byte_equal_canon": true,
+      "ios_byte_equal_canon": true,
+      "android_equal_ios": true,
+      "cross_envelope_match": true,
+      "cross_payload_match": true,
+      "android_idempotent": true,
+      "ios_idempotent": true,
+      "pass": true
+    },
+    {
+      "fixture": "10_transport_migrate.json",
+      "bytes": 208,
+      "android_byte_equal_canon": true,
+      "ios_byte_equal_canon": true,
+      "android_equal_ios": true,
+      "cross_envelope_match": true,
+      "cross_payload_match": true,
+      "android_idempotent": true,
+      "ios_idempotent": true,
+      "pass": true
+    },
+    {
+      "fixture": "11_error.json",
+      "bytes": 249,
+      "android_byte_equal_canon": true,
+      "ios_byte_equal_canon": true,
+      "android_equal_ios": true,
+      "cross_envelope_match": true,
+      "cross_payload_match": true,
+      "android_idempotent": true,
+      "ios_idempotent": true,
+      "pass": true
+    },
+    {
+      "fixture": "12_goodbye.json",
+      "bytes": 199,
+      "android_byte_equal_canon": true,
+      "ios_byte_equal_canon": true,
+      "android_equal_ios": true,
+      "cross_envelope_match": true,
+      "cross_payload_match": true,
+      "android_idempotent": true,
+      "ios_idempotent": true,
+      "pass": true
+    }
+  ]
+}

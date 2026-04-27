@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-04-27T00:00:00Z",
+  "previousFindingsResolved": [
+    {
+      "kind": "previous_false_positives",
+      "note": "v1.3 of this file flagged 7 'swift_print' hits in tools/*.py files. The detector's regex matched Python print() calls in tool scripts; these were never Swift production-code issues. All 7 paths re-inspected; no Swift print() remains in production source.",
+      "filesPreviouslyFlagged": [
+        "tools/generate_evidence_bundle.py", "tools/conformance_runner.py",
+        "tools/validate_config.py", "tools/rtm_coverage.py"
+      ]
+    }
+  ],
+  "currentHits": [],
+  "knownGapsNotBlocking": [
+    {
+      "kind": "platform_runtime_only",
+      "note": "Real BLE / Wi-Fi Aware / QR camera-scanning transport adapters are intentionally not exercised by the auto-test suite; these require physical devices and are tracked in RTM as Not Covered (FR-010..FR-014, FR-040..FR-044, NFR-003, NFR-004, TR-024)."
+    },
+    {
+      "kind": "third_party_sdk",
+      "note": "Google Play Billing and Apple StoreKit integration tests require their respective sandbox accounts; tracked as FR-053..FR-055 Not Covered in RTM."
+    },
+    {
+      "kind": "ui_review",
+      "note": "Visual / accessibility / inclusive-copy QA (UX-001..005) requires human review; not auto-testable."
+    }
+  ],
+  "nonceConstantPatterns": []
+}

@@ -1,0 +1,22 @@
+{
+  "envelope": {
+    "v": 1,
+    "msgType": "CHAT_MEDIA_ACK",
+    "sessionId": "s_session01",
+    "messageId": "m_msg00009x",
+    "sentAtMs": 1730000000400,
+    "transport": "WIFI",
+    "payloadEncoding": "JSON"
+  },
+  "payload": {
+    "transferId": "xfer_aaaaaaa1",
+    "highestContiguousChunk": 0
+  },
+  "_meta": {
+    "protocolVersion": "1.0",
+    "expectedResult": "PASS",
+    "purpose": "interop",
+    "toolVersion": "lumos-rc1-v1.4",
+    "fixtureId": "golden_08_chat_media_ack"
+  }
+}

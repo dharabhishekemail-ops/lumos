@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lumos.local/schemas/signed-config-v1.json",
+  "title": "LumosSignedConfigPack",
+  "description": "Canonical signed config pack, v1. Per Lumos Signed Config Schema & Governance Spec v1.0 §3-4. Apps MUST validate this schema BEFORE signature verification BEFORE applying.",
+  "type": "object",
+  "required": ["schemaVersion","configVersion","issuedAt","expiresAt","payload","signature"],
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {"type": "integer", "const": 1},
+    "configVersion": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "issuedAt":      {"type": "string", "format": "date-time"},
+    "expiresAt":     {"type": "string", "format": "date-time"},
+    "payload": {
+      "type": "object",
+      "required": ["featureFlags","transport","rateLimits","legalCopyVersion"],
+      "additionalProperties": false,
+      "properties": {
+        "featureFlags": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "adsTabEnabled":           {"type": "boolean"},
+            "vouchersEnabled":         {"type": "boolean"},
+            "operatorModeEnabled":     {"type": "boolean"},
+            "diagnosticsPanelEnabled": {"type": "boolean"}
+          }
+        },
+        "transport": {
+          "type": "object",
+          "required": ["priorityOrder","retryBudget","backoffMaxMs"],
+          "additionalProperties": false,
+          "properties": {
+            "priorityOrder": {"type": "array", "items": {"type": "string", "enum": ["BLE","WIFI","QR"]}, "minItems": 1, "maxItems": 3, "uniqueItems": true},
+            "retryBudget":   {"type": "integer", "minimum": 0, "maximum": 10},
+            "backoffMaxMs":  {"type": "integer", "minimum": 100, "maximum": 30000}
+          }
+        },
+        "rateLimits": {
+          "type": "object",
+          "required": ["interestPerHour","messagesPerMinute"],
+          "additionalProperties": false,
+          "properties": {
+            "interestPerHour":   {"type": "integer", "minimum": 1, "maximum": 200},
+            "messagesPerMinute": {"type": "integer", "minimum": 1, "maximum": 200}
+          }
+        },
+        "legalCopyVersion": {"type": "string", "minLength": 1, "maxLength": 32},
+        "monetization": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "freePreviewMinutes": {"type": "integer", "minimum": 0, "maximum": 240},
+            "skus": {
+              "type": "array", "maxItems": 50,
+              "items": {
+                "type": "object",
+                "required": ["id","type","label"],
+                "additionalProperties": false,
+                "properties": {
+                  "id":    {"type": "string", "minLength": 1, "maxLength": 120},
+                  "type":  {"type": "string", "enum": ["SUBS","INAPP"]},
+                  "label": {"type": "string", "minLength": 1, "maxLength": 80}
+                }
+              }
+            }
+          }
+        },
+        "rolloutPercent": {"type": "integer", "minimum": 0, "maximum": 100}
+      }
+    },
+    "signature": {
+      "type": "object",
+      "required": ["alg","keyId","sigB64"],
+      "additionalProperties": false,
+      "properties": {
+        "alg":    {"type": "string", "const": "ed25519"},
+        "keyId":  {"type": "string", "minLength": 1, "maxLength": 64},
+        "sigB64": {"type": "string", "pattern": "^[A-Za-z0-9+/]+=*$"}
+      }
+    }
+  }
+}

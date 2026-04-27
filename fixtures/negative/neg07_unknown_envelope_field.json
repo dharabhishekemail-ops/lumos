@@ -1,0 +1,22 @@
+{
+  "envelope": {
+    "v": 1,
+    "msgType": "HEARTBEAT",
+    "sessionId": "s_session01",
+    "messageId": "m_msg00001x",
+    "sentAtMs": 1730000000000,
+    "transport": "BLE",
+    "payloadEncoding": "JSON",
+    "extraField": "should_be_rejected"
+  },
+  "payload": {
+    "seq": 1
+  },
+  "_meta": {
+    "protocolVersion": "1.0",
+    "expectedResult": "REJECT",
+    "purpose": "interop-negative",
+    "toolVersion": "lumos-rc1-v1.4",
+    "fixtureId": "neg07_unknown_envelope_field"
+  }
+}

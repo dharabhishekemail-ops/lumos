@@ -1,0 +1,314 @@
+{
+  "generatedAt": "2026-04-27T00:00:00Z",
+  "rtmSource": "docs/RTM.md",
+  "rtmVersion": "1.4",
+  "summary": {
+    "covered": 23,
+    "partial": 32,
+    "notCovered": 20,
+    "notInScope": 0,
+    "total": 75
+  },
+  "entries": [
+    {
+      "requirement": "FR-001",
+      "status": "Partial"
+    },
+    {
+      "requirement": "FR-002",
+      "status": "Partial"
+    },
+    {
+      "requirement": "FR-003",
+      "status": "Partial"
+    },
+    {
+      "requirement": "FR-004",
+      "status": "Partial"
+    },
+    {
+      "requirement": "FR-008",
+      "status": "Covered"
+    },
+    {
+      "requirement": "FR-009",
+      "status": "Covered"
+    },
+    {
+      "requirement": "FR-010",
+      "status": "Not Covered"
+    },
+    {
+      "requirement": "FR-011",
+      "status": "Not Covered"
+    },
+    {
+      "requirement": "FR-012",
+      "status": "Not Covered"
+    },
+    {
+      "requirement": "FR-013",
+      "status": "Not Covered"
+    },
+    {
+      "requirement": "FR-014",
+      "status": "Not Covered"
+    },
+    {
+      "requirement": "FR-019",
+      "status": "Covered"
+    },
+    {
+      "requirement": "FR-020",
+      "status": "Covered"
+    },
+    {
+      "requirement": "FR-021",
+      "status": "Partial"
+    },
+    {
+      "requirement": "FR-022",
+      "status": "Partial"
+    },
+    {
+      "requirement": "FR-023",
+      "status": "Partial"
+    },
+    {
+      "requirement": "FR-030",
+      "status": "Partial"
+    },
+    {
+      "requirement": "FR-031",
+      "status": "Covered"
+    },
+    {
+      "requirement": "FR-032",
+      "status": "Not Covered"
+    },
+    {
+      "requirement": "FR-033",
+      "status": "Covered"
+    },
+    {
+      "requirement": "FR-034",
+      "status": "Partial"
+    },
+    {
+      "requirement": "FR-040",
+      "status": "Not Covered"
+    },
+    {
+      "requirement": "FR-041",
+      "status": "Partial"
+    },
+    {
+      "requirement": "FR-042",
+      "status": "Not Covered"
+    },
+    {
+      "requirement": "FR-043",
+      "status": "Partial"
+    },
+    {
+      "requirement": "FR-044",
+      "status": "Not Covered"
+    },
+    {
+      "requirement": "FR-050",
+      "status": "Not Covered"
+    },
+    {
+      "requirement": "FR-051",
+      "status": "Not Covered"
+    },
+    {
+      "requirement": "FR-052",
+      "status": "Not Covered"
+    },
+    {
+      "requirement": "FR-053",
+      "status": "Partial"
+    },
+    {
+      "requirement": "FR-054",
+      "status": "Not Covered"
+    },
+    {
+      "requirement": "FR-055",
+      "status": "Not Covered"
+    },
+    {
+      "requirement": "FR-060",
+      "status": "Partial"
+    },
+    {
+      "requirement": "FR-061",
+      "status": "Partial"
+    },
+    {
+      "requirement": "FR-062",
+      "status": "Partial"
+    },
+    {
+      "requirement": "FR-063",
+      "status": "Partial"
+    },
+    {
+      "requirement": "FR-064",
+      "status": "Partial"
+    },
+    {
+      "requirement": "FR-065",
+      "status": "Partial"
+    },
+    {
+      "requirement": "TR-001",
+      "status": "Covered"
+    },
+    {
+      "requirement": "TR-002",
+      "status": "Covered"
+    },
+    {
+      "requirement": "TR-003",
+      "status": "Partial"
+    },
+    {
+      "requirement": "TR-007",
+      "status": "Covered"
+    },
+    {
+      "requirement": "TR-008",
+      "status": "Covered"
+    },
+    {
+      "requirement": "TR-010",
+      "status": "Partial"
+    },
+    {
+      "requirement": "TR-011",
+      "status": "Covered"
+    },
+    {
+      "requirement": "TR-012",
+      "status": "Partial"
+    },
+    {
+      "requirement": "TR-013",
+      "status": "Covered"
+    },
+    {
+      "requirement": "TR-020",
+      "status": "Covered"
+    },
+    {
+      "requirement": "TR-021",
+      "status": "Covered"
+    },
+    {
+      "requirement": "TR-022",
+      "status": "Covered"
+    },
+    {
+      "requirement": "TR-023",
+      "status": "Covered"
+    },
+    {
+      "requirement": "TR-024",
+      "status": "Not Covered"
+    },
+    {
+      "requirement": "NFR-001",
+      "status": "Partial"
+    },
+    {
+      "requirement": "NFR-002",
+      "status": "Covered"
+    },
+    {
+      "requirement": "NFR-003",
+      "status": "Not Covered"
+    },
+    {
+      "requirement": "NFR-004",
+      "status": "Not Covered"
+    },
+    {
+      "requirement": "NFR-005",
+      "status": "Not Covered"
+    },
+    {
+      "requirement": "PC-001",
+      "status": "Partial"
+    },
+    {
+      "requirement": "PC-002",
+      "status": "Partial"
+    },
+    {
+      "requirement": "PC-003",
+      "status": "Covered"
+    },
+    {
+      "requirement": "PC-010..PC-012",
+      "status": "Partial"
+    },
+    {
+      "requirement": "PC-020..PC-022",
+      "status": "Partial"
+    },
+    {
+      "requirement": "PC-030",
+      "status": "Not Covered"
+    },
+    {
+      "requirement": "PC-040",
+      "status": "Partial"
+    },
+    {
+      "requirement": "LC-001..LC-005",
+      "status": "Partial"
+    },
+    {
+      "requirement": "AC-001",
+      "status": "Covered"
+    },
+    {
+      "requirement": "AC-002",
+      "status": "Covered"
+    },
+    {
+      "requirement": "AC-003",
+      "status": "Covered"
+    },
+    {
+      "requirement": "AC-004",
+      "status": "Covered"
+    },
+    {
+      "requirement": "DR-001..DR-004",
+      "status": "Partial"
+    },
+    {
+      "requirement": "UX-001..UX-005",
+      "status": "Partial"
+    },
+    {
+      "requirement": "QA-001",
+      "status": "Partial"
+    },
+    {
+      "requirement": "QA-002",
+      "status": "Partial"
+    },
+    {
+      "requirement": "QA-003",
+      "status": "Not Covered"
+    },
+    {
+      "requirement": "QA-004",
+      "status": "Covered"
+    }
+  ]
+}

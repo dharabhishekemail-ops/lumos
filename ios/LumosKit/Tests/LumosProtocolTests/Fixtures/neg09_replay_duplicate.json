@@ -1,0 +1,23 @@
+{
+  "envelope": {
+    "v": 1,
+    "msgType": "CHAT_TEXT",
+    "sessionId": "s_session01",
+    "messageId": "m_msg00007x",
+    "sentAtMs": 1730000000300,
+    "transport": "WIFI",
+    "payloadEncoding": "JSON"
+  },
+  "payload": {
+    "ciphertextB64": "aGVsbG8gd29ybGQ=",
+    "aadHashHex": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "ratchetIndex": 0
+  },
+  "_meta": {
+    "protocolVersion": "1.0",
+    "expectedResult": "REJECT",
+    "purpose": "orchestrator-replay",
+    "toolVersion": "lumos-rc1-v1.4",
+    "fixtureId": "neg09_replay_duplicate"
+  }
+}
