@@ -52,6 +52,7 @@ targets:
   LumosAppTests:
     type: bundle.unit-test
     platform: iOS
+    hostApplication: LumosApp
     sources:
       - path: LumosAppTests
     dependencies:
@@ -61,3 +62,13 @@ targets:
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.lumos.app.tests
+
+schemes:
+  LumosApp:
+    build:
+      targets:
+        LumosApp: all
+    test:
+      gatherCoverageData: true
+      targets:
+        - LumosAppTests
