@@ -30,6 +30,26 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Xcode build + test
+      - name: Install iOS build tooling
         run: |
-          xcodebuild -scheme LumosApp -destination 'platform=iOS Simulator,name=iPhone 15' clean test | xcpretty
+          brew update
+          brew install xcodegen xcbeautify
+      - name: Generate Xcode project
+        working-directory: ios/LumosApp
+        run: |
+          xcodegen generate
+      - name: Build + test app integration target
+        working-directory: ios/LumosApp
+        run: |
+          xcodebuild \
+            -project LumosApp.xcodeproj \
+            -scheme LumosApp \
+            -destination 'platform=iOS Simulator,name=iPhone 15' \
+            clean test | xcbeautify
+      - name: Build + test LumosKit SwiftPM package
+        working-directory: ios/LumosKit
+        run: |
+          xcodebuild \
+            -scheme LumosKit-Package \
+            -destination 'platform=iOS Simulator,name=iPhone 15' \
+            clean test | xcbeautify
